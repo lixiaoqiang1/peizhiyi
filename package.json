@@ -1,0 +1,118 @@
+{
+  "name": "udesk-mobile-h5-template",
+  "version": "1.0.0",
+  "description": "统一客户端应用平台(UDesk)移动H5功能样板工程，仅供行内应用系统研发人员学习移动H5(Vue)技术栈使用。正式开发请使用移动H5模板工程(udesk-mobile-template)",
+  "author": "UDesk",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vue-cli-service serve --open",
+    "build:prod": "vue-cli-service build",
+    "build:stage": "vue-cli-service build --mode staging",
+    "preview": "node build/index.js --preview",
+    "lint": "eslint --ext .js,.vue src",
+    "test:unit": "vue-cli-service test:unit",
+    "test:ci": "npm run lint && npm run test:unit",
+    "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
+    "new": "plop",
+    "package": "node zipDist"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "vue",
+    "udesk",
+    "mobile",
+    "H5",
+    "dashboard",
+    "mint-ui",
+    "boilerplate",
+    "Agricultural Bank of China"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://tfscode.tfsx.abc:8080/tfs/ABCDev/UDesk3.0/_git/UDesk5.0"
+  },
+  "bugs": {
+    "url": "http://dt.abc/#/platformQuestion/23/all"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.16.0",
+    "axios": "^0.19.0",
+    "axios-mock-adapter": "^1.17.0",
+    "crypto-js": "^4.1.1",
+    "cube-ui": "~1.12.15",
+    "dayjs": "^1.10.7",
+    "echarts": "^4.3.0",
+    "js-cookie": "^2.2.1",
+    "jsonlint": "^1.6.3",
+    "mint-ui": "^2.2.13",
+    "normalize.css": "^7.0.0",
+    "path-to-regexp": "^2.4.0",
+    "vant": "^2.12.37",
+    "vconsole": "^3.15.1",
+    "vue": "^2.6.10",
+    "vue-i18n": "^7.3.2",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@vue/cli-plugin-babel": "^3.5.3",
+    "@vue/cli-plugin-unit-jest": "^3.9.0",
+    "@vue/cli-service": "^3.5.3",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "chalk": "^2.4.2",
+    "connect": "^3.6.6",
+    "eslint": "^5.15.3",
+    "eslint-plugin-vue": "^5.2.2",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^8.1.5",
+    "mockjs": "^1.0.1-beta3",
+    "node-sass": "^4.9.0",
+    "plop": "^2.3.0",
+    "postcss-pxtorem": "^4.0.1",
+    "runjs": "^4.3.2",
+    "sass-loader": "^7.1.0",
+    "script-ext-html-webpack-plugin": "^2.1.3",
+    "script-loader": "^0.7.2",
+    "serve-static": "^1.13.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "svg-sprite-loader": "^4.1.3",
+    "svgo": "^1.2.0",
+    "vue-cli-plugin-cube-ui": "^0.2.5",
+    "vue-template-compiler": "^2.6.10",
+    "zip-dir": "^1.0.2"
+  },
+  "engines": {
+    "node": ">= 8.9",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "transformModules": {
+    "cube-ui": {
+      "transform": "cube-ui/src/modules/${member}",
+      "kebabCase": true
+    }
+  }
+}

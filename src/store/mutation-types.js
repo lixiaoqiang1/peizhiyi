@@ -1,0 +1,1 @@
+export const ADD_OR_UPDATE_IMPORTANT_PRODUCT="addOrUpdateImportantProduct"
