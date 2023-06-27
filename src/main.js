@@ -11,6 +11,7 @@ import 'mint-ui/src/assets/font/iconfont.css'
 import '@/styles/base.scss'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import 'mand-mobile/lib/mand-mobile.css'
 // import 'vant/lib/index.less'
 import Echarts from 'echarts'
 import './cube-ui' // 按需引用cube-ui
@@ -19,14 +20,14 @@ import MockAdapter from 'axios-mock-adapter' // 引入axios-mock-adapter插件�
 import '@/utils/rem-flexible' // rem 根字号全局设置
 import '@/styles/mobileBank/index.scss' // 引入个人掌银样式定义
 // import '@udesk/mbank-ui/lib/style/index.css' // 引入udesk样式
-import { getCookies } from 'utils/preference'
-// import { request } from 'utils/myRequest'
+import Vconsole from 'vconsole'
 Vue.prototype.$echarts = Echarts
 Vue.prototype.$axios = Axios
 Vue.prototype.$axios.options.emulateJSON = true
-import Vconsole from 'vconsole'
-const vConsole = new Vconsole()
-export default vConsole
+
+export default new Vconsole()
+
+import EButton from '@/components/EButton' // 引入个人掌银样式定义
 
 // 以下配合axios-mock-adapter实现请求服务端错误
 var newAxios = Axios.create({
@@ -38,6 +39,7 @@ Vue.use(Vant)
 Vue.use(MintUI)
 Vue.config.productionTip = false
 
+Vue.component('EButton', EButton)
 // 使用插件模拟三种服务端状态：200/403/500
 mock.onAny('/users500').reply(500, {
   users: [
