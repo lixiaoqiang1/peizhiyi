@@ -16,13 +16,12 @@ const service = axios.create({
   withCredentials: true
 })
 
-
 // request拦截器
 service.interceptors.request.use(
   config => {
     // 让每个请求携带自定义token 请根据实际情况自行修改
     // config.headers['X-Token'] = '123456'
-    config.headers['Authorization'] = "Bearer " + aixosIntoken;
+    config.headers['Authorization'] = 'Bearer ' + aixosIntoken
     return config
   },
   error => {
