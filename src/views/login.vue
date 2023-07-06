@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="container">
-      <img :src="require('@/assets/images/header_photo.png') " class="headerPhoto"></img>
+      <img :src="require('@/assets/images/header_photo.png') " class="headerPhoto">
       <form ref="loginForm" class="login-form">
         <div type="form">
           <md-field>
@@ -12,6 +12,17 @@
               clearable
               placeholder="请输入手机号"
             />
+            <div style="display: flex;justify-content: space-between;">
+              <md-input-item
+                v-model="username"
+                style="width: 60%;"
+                type="phone"
+                title="验证码"
+                clearable
+                placeholder="验证码"
+              />
+              <yanzheng style="width: 38%;line-height: 52px;font-size: 16px;" />
+            </div>
             <md-input-item
               v-model="password"
               type="password"
@@ -28,7 +39,7 @@
       </div>
       <div class="userItem">
         <div>角色：管理员 用户名：admin 密码：111111</div>
-        <div>角色：用户 &nbsp&nbsp 用户名：user&nbsp&nbsp 密码：111111</div>
+        <div>角色：用户  用户名：user密码：111111</div>
       </div>
       <div class="list">
         <ul>
@@ -36,6 +47,8 @@
         </ul>
       </div>
     </div>
+    <!-- 悬浮窗 -->
+    <xuanfu />
   </div>
 </template>
 
@@ -43,12 +56,16 @@
 import { Toast } from 'mint-ui'
 import { setTimeout } from 'timers'
 import { setCookies } from 'utils/preference'
-import { Button, InputItem, Field, Dialog } from 'mand-mobile'
+import { Button, InputItem, Field } from 'mand-mobile'
+import yanzheng from '@/components/yanzheng'
+import xuanfu from '@/components/xuanfu'
 export default {
   components: {
     [Button.name]: Button,
     [InputItem.name]: InputItem,
-    [Field.name]: Field
+    [Field.name]: Field,
+    yanzheng,
+    xuanfu
   },
   data() {
     return {
@@ -56,7 +73,8 @@ export default {
       password: '',
       login_message: '登录',
       datalist: [
-        { title: '测试授权', router: 'loginCode' }
+        { title: '测试授权', router: 'loginCode' },
+        { title: 'h5跳小程序', router: 'jumpPage' }
       ]
     }
   },
@@ -71,6 +89,7 @@ export default {
 
   methods: {
     onclick(row) {
+      console.log(row)
       const params = {}
       this.$router.push({ path: row.router, query: params })
     },
@@ -125,8 +144,11 @@ export default {
   .buttonItem{
     padding: 40px;
   }
-  .list ul li{
-    line-height: 60px;
+  .list {
+    margin: 10px 0;
+    ul li{
+      line-height: 50px;
+    }
   }
 }
 </style>

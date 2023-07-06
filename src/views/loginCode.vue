@@ -4,7 +4,7 @@
 
 <script>
 // import NavBar from './NavBar'
-import { getWxOpenidAndToken, getWxUserMessage } from '@/network/wx'
+import { getWxOpenidAndToken, getWxUserMessage } from '@/api/wx'
 
 export default {
   name: 'News',
@@ -30,7 +30,7 @@ export default {
       var local = window.location.href // 获取页面url
       this.code = this.getUrlCode().code // 截取code
       console.log('this.code ', this.code)
-      if (this.code == null || this.code === '' || this.code == undefined) {
+      if (this.code == null || this.code === '' || this.code === undefined) {
         // 如果没有code，则去请求
         const url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${
           this.appid
@@ -43,7 +43,7 @@ export default {
         console.log(this.appid, this.secret, this.code)
         getWxOpenidAndToken(this.appid, this.secret, this.code).then(function(res) {
           console.log('getWxOpenidAndToken=>:', res)
-          if (res.access_token != undefined) {
+          if (res.access_token !== undefined) {
             getWxUserMessage(res.access_token, res.openid).then(function(resdata) {
               console.log('getWxUserMessage=>:', resdata)
             })
@@ -56,8 +56,8 @@ export default {
       var url = location.search
       console.log('url', url)
       this.winUrl = url
-      var theRequest = new Object()
-      if (url.indexOf('?') != -1) {
+      var theRequest = {}
+      if (url.indexOf('?') !== -1) {
         var str = url.substr(1)
         var strs = str.split('&')
         for (var i = 0; i < strs.length; i++) {

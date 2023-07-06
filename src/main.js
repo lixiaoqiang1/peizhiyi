@@ -28,6 +28,7 @@ Vue.prototype.$axios.options.emulateJSON = true
 export default new Vconsole()
 
 import EButton from '@/components/EButton' // 引入个人掌银样式定义
+import EHeader from '@/components/EHeader' // 引入个人掌银样式定义
 
 // 以下配合axios-mock-adapter实现请求服务端错误
 var newAxios = Axios.create({
@@ -40,6 +41,8 @@ Vue.use(MintUI)
 Vue.config.productionTip = false
 
 Vue.component('EButton', EButton)
+Vue.component('EHeader', EHeader)
+
 // 使用插件模拟三种服务端状态：200/403/500
 mock.onAny('/users500').reply(500, {
   users: [
@@ -56,6 +59,7 @@ mock.onPut('/usersputsuccess').reply(200, {
     { id: 200, name: 'putsuccess' }
   ]
 })
+Vue.config.ignoredElements = ['wx-open-launch-weapp']
 new Vue({
   el: '#app',
   router,

@@ -9,11 +9,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { getCookies } from 'utils/preference'
-import IndexView from '../views/indexView'
-import login from '../views/login'
-import loginCode from '../views/loginCode'
+
+import home from '@/views/home'
+import IndexView from '@/views/indexView'
+import login from '@/views/login'
+import loginCode from '@/views/loginCode'
 import editAccount from '../views/editAccount'
-// import jupage from '../views/jupage'
+// import jumpPage from '@/views/jumpPage'
 
 // import { ValidateUserByIdentity } from '@/network'
 
@@ -28,6 +30,14 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'home',
+    component: home,
+    meta: {
+      title: '首页'
+    }
+  },
+  {
+    path: '/UIList',
     name: 'UIList',
     component: IndexView,
     meta: {
@@ -42,14 +52,14 @@ const routes = [
       title: '登录'
     }
   },
-  // {
-  //   path: '/',
-  //   name: 'loginCode',
-  //   component: loginCode,
-  //   meta: {
-  //     title: 'code登录'
-  //   }
-  // },
+  {
+    path: '/',
+    name: 'loginCode',
+    component: loginCode,
+    meta: {
+      title: 'code登录'
+    }
+  },
   {
     path: '/loginCode',
     name: 'loginCode',
@@ -67,14 +77,13 @@ const routes = [
     }
   },
   // {
-  //   path: '/jupage',
-  //   name: 'jupage',
-  //   component: jupage,
+  //   path: '/jumpPage',
+  //   name: 'jumpPage',
+  //   component: jumpPage,
   //   meta: {
   //     title: 'h5跳小程序'
   //   }
   // },
-  
   ...mintRouters,
   ...indexMores
 ]
