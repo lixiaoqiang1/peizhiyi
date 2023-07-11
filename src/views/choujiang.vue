@@ -78,32 +78,32 @@ export default {
         {
           url: './static/images/icon_4.png',
           title: '我的账户4',
-          name: 'activity'
+          name: 'activity4'
         },
         {
           url: './static/images/icon_4.png',
           title: '我的账户5',
-          name: 'activity'
+          name: 'activity5'
         },
         {
           url: './static/images/icon_4.png',
           title: '我的账户6',
-          name: 'activity'
+          name: 'activity6'
         },
         {
           url: './static/images/icon_4.png',
           title: '我的账户7',
-          name: 'activity'
+          name: 'activity7'
         },
         {
           url: './static/images/icon_4.png',
           title: '我的账户8',
-          name: 'activity'
+          name: 'activity8'
         },
         {
           url: './static/images/icon_4.png',
           title: '我的账户9',
-          name: 'activity'
+          name: 'activity9'
         }
       ]
     }
