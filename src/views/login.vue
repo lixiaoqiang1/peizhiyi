@@ -73,8 +73,11 @@ export default {
       password: '',
       login_message: '登录',
       datalist: [
-        { title: '测试授权', router: 'loginCode' },
-        { title: 'h5跳小程序', router: 'jumpPage' }
+        { title: '测试授权', router: '/loginCode' },
+        { title: 'h5跳小程序', router: '/jumpPage' },
+        { title: '抽奖', router: '/choujiang' }
+        // { title: 'h5跳小程序1', router: 'https://wx.abchina.com/Apply/index.html#/?param=direct=qLIyu27Ty4ri7kyuqAxGqMXzqdpRAISCDJNIMQDss/7pHZQl5jxNdTBiuXcoQ3DPQdEgVqXWDg3K5fKNIyIGyQ==&mgr=share' }
+        // { title: 'h5跳小程序1', router: 'https://wx,abchina,com/Apply/index.html#/?param-direct=gLIyu271y4ri7kyugAxGquxzgdpRAISCDINIMODss/7pHZ015ixNdTBiuXco03DPOdEgVgXWDg3K5fKNIyIGy0=-&mgr=share' }
       ]
     }
   },

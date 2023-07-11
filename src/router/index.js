@@ -15,6 +15,8 @@ import IndexView from '@/views/indexView'
 import login from '@/views/login'
 import loginCode from '@/views/loginCode'
 import editAccount from '../views/editAccount'
+import choujiang from '@/views/choujiang'
+
 // import jumpPage from '@/views/jumpPage'
 
 // import { ValidateUserByIdentity } from '@/network'
@@ -76,6 +78,14 @@ const routes = [
       title: '修改手机号'
     }
   },
+  {
+    path: '/choujiang',
+    name: 'choujiang',
+    component: choujiang,
+    meta: {
+      title: '抽奖'
+    }
+  },
   // {
   //   path: '/jumpPage',
   //   name: 'jumpPage',
@@ -102,8 +112,8 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login' || to.path === '/editAccount' || to.path === '/loginCode') {
       next()
     } else {
-      // next()
-      next({ path: '/login' })
+      next()
+      // next({ path: '/login' })
     }
   }
 })
